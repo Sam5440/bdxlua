@@ -1,6 +1,9 @@
 local Lib = require('Huaji Lib').load()
-DLC_CA_version = "1.0.1"
+DLC_CA_version = "1.0.8"
 --初始化开始
+--依赖前置-聊天与称号管理lua-和前置文件夹内的前置lua，请到群内下载
+--插件会在 lua-Auxiliary文件夹内生成一个a_ch.shop.txt,第一行代表的是称号,第二行代表上一行称号的价格，填写数字就好,第三行代表的也是称号,第四行代表的则是第三行的称号价格,以此类推,商店gui会自动生成,请务必保证填写的行数为双数，单数行是称号，双数行请务必填写一个数字的价格。
+--/chlist显示所有可用称号，/chshop显示称号商店，/chlistadd添加某个玩家的可用称号，仅限op
 DLC_CA_path = Lib:cd()
 DLC_CA_luapath = DLC_CA_path .. "\\lua\\Chat-Auxiliary\\"
 DLC_CA_guipath = DLC_CA_path .. "\\gui\\DLC_CA_list"
@@ -82,13 +85,13 @@ function DLC_CA_chlistshopadd(name,selected,text)
     chshop = Lib:tfr(DLC_CA_luapath .. "a_ch.shop.txt")
     selected = selected + 1
     selected = selected*2 - 1
-    ch = chshop[selected]
+    ch = chshop[selected] .. "\n"
     price = tonumber(chshop[selected+1])
     if rdMoney(name,price) then
     Lib:fw(DLC_CA_luapath .. name .. ".list",ch,2) 
-    sendText(name,"成功购买称号".. ch)
+    sendText(name,"成功购买称号".. ch .. "欢迎光~临")
     else
-    sendText(name,"你没有这么多钱")
+    sendText(name,"没钱?想白嫖？爬")
  end
 end
 
