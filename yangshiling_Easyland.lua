@@ -23,7 +23,7 @@
 --更改进入领地提示的位置，更新保存玩家领地数到@landnumber.玩家名.txt
 --v1.3.1 去除领地提示的system，让其显示更简洁，适配物品栏上方显示
 --v1.4.0 领地里面锄头点地打开领地菜单，op可以直接单独设置某人领地上限，不需要添加到lua的admin了
---v1.5.0创建领地自动弹出创建家gui（需要前置菜单支持），op可以强制使用land give了
+--v1.5.0创建领地自动弹出创建家gui（需要前置菜单支持），op可以强制使用land give了.
 local Lib = require('Huaji Lib').load()  --前置huaji lib
       elversion = "1.5.0"     --版本号
       ELAdmins = {"yangshiling", "Mubaichen"}        --本lua的admin组
